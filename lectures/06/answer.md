@@ -18,5 +18,5 @@
 
 - 取り組んだレベル：基礎
 - やったこと：`app/mcp_server.py` に `server.tool()(tools.get_lecture_summary)` を追加した。
-- 結果：`glossary_get_lecture_summary` が MCP サーバーのツール一覧に公開された。TestModel で「第2回では何を学びますか？」に対して `lecture: 2` の呼び出しと要点の返却を確認した。Gemini API の実トレースは 2 回試したが、HTTP 503（モデル混雑）で確認できなかった。
+- 結果：`glossary_get_lecture_summary` が MCP サーバーのツール一覧に公開された。「第2回では何を学びますか？」への実トレースで `glossary_get_lecture_summary({'lecture': 2})` が呼ばれ、講義の要点が返ることを確認した。最初は Gemini API の HTTP 503 が続いたが、再試行で成功した。
 - 気づき・疑問：サーバー側への登録を変えるだけで、エージェント側の設定はそのままにツール一覧へ反映された。
